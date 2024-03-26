@@ -23,8 +23,17 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.SignupView.as_view(),name="login"),
     path('signin/',views.SigninView.as_view(),name="signin"),
+    path('singout/',views.SignoutView.as_view(),name="signout"),
     path('index/',views.IndexView.as_view(),name="index"),
     path('cars/<int:pk>/details/',views.CarsDetailView.as_view(),name="cars-details"),
     path('cars/<int:pk>/add_to_favourites/',views.AddToFavouritesView.as_view(),name="addto-favourites"),
+    path('car/favourites/list/',views.FavouriteslistView.as_view(),name="favourites-list"),
+    path('car/<int:pk>/remove/',views.FavouroiteRemoveView.as_view(),name="favourites-remove"),
+    path('chackout/',views.CheckOutView.as_view(),name="checkout"),
+    path('summery/',views.OrderSummery.as_view(),name="order-summery"),
+    path('order/item/<int:pk>/remove/',views.BookinggItemsRemove.as_view(),name="order-item-remove"),
+
+    path('payment/verification/',views.PaymentVarificationView.as_view(),name="payment-varification"),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

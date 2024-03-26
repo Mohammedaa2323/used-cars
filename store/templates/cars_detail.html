@@ -4,47 +4,56 @@
 {%block main_block%}
 
 <div class="about_section layout_padding">
-  <div class="container">
-     <div class="about_section_2">
-        <div class="row  p-3 shadow">
-           <div class="col-md-6"> 
-              <div class="image_iman"><img src="{{data.image.url}}" class="about_img"></div>
-           </div>
-           <div class="col-md-6 "> 
-              <div class="about_taital_box ">
-                 <h1 class="about_taital d-flex justify-content-center mb-3">{{data.name}}</h1>
-                 <!-- <span style="color: #fe5b29;">Car</span> -->
-               <!-- <p class="about_taital " style="color: #fe5b29;">{{data.name}}</p> -->
-               <div class="">
-                  <button type="button" class="btn btn-outline-secondary ">Type : {{data.fuel_object}}</button>
-                  <button type="button" class="btn btn-outline-secondary">Registration : {{data.Registration}}</button>
-                  <button type="button" class="btn btn-outline-secondary">Year : {{data.year}}</button>
-                  <button type="button" class="btn btn-outline-secondary">KM : {{data.distance_travelled}}</button>
+   <div class="container">
+      <div class="about_section_2">
+         <div class="row  p-3 shadow">
+            <div class="col-md-5">
+               <div class="image_iman"><img src="{{data.image.url}}" class="about_img"></div>
+            </div>
+            <div class="col-md-7 ">
+               <div class="about_taital_box ">
+                  <h1 class="about_taital d-flex justify-content-center mb-3">{{data.name}} <i
+                        class="fa-solid fa-car ms-4" style="color: #000000;"></i></h1>
+                  <!-- <span style="color: #fe5b29;">Car</span> -->
+                  <!-- <p class="about_taital " style="color: #fe5b29;">{{data.name}}</p> -->
+                  <div class="">
+                     <button type="button" class="btn btn-outline-secondary ">Type : {{data.fuel_object}}</button>
+                     <button type="button" class="btn btn-outline-secondary">Registration :
+                        {{data.Registration}}</button>
+                     <button type="button" class="btn btn-outline-secondary">Year : {{data.year}}</button>
+                     <button type="button" class="btn btn-outline-secondary">KM : {{data.distance_travelled}}</button>
 
-               
-               </div>
 
-                 <p class="about_text">{{data.description}}</p>
-               <div>                 
-                  <form action="{%url 'addto-favourites' data.id%}" method="post">
-                  {%csrf_token%}
-                  <button type="button" class="readmore_btns p-3 btn-outline-dark mt-5 me-3" style="width: 200px;" >Price : {{data.price}}
-                  </button>
-                     <button type="submit" class="readmore_btns p-3 btn-outline-dark mt-5" style="width: 200px;" >Add to Favourites
-                     </button>
+                  </div>
+
+                  <p class="about_text">{{data.description}}</p>
                   
-           
-                 </form></div>
-            
-              </div>
-           </div>
-        </div>
-     </div>
-  </div>
+                  <div>
+                     
+                     <form action="{%url 'addto-favourites' data.id%}" method="post">
+                        {%csrf_token%}
+                        <button type="button" class="readmore_btns p-3 btn-outline-dark mt-5 me-3"
+                           style="width: 200px;">Price : {{data.price}}
+                        </button>
+                        
+                        <button type="submit" class="readmore_btns p-3 btn-outline-dark mt-5" style="width: 200px;">Add
+                           to Favourites <i class="fa-solid fa-plus" style="color: #ffffff;"></i>
+                        </button>
+                        <a type="" href="{%url 'checkout'%}" class="readmore_btns p-3 btn-outline-dark mt-5 ms-3"
+                        style="width: 150px; height: 53px;">Book Now
+                        </a>
+                     </form>
+                  </div>
+
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
 </div>
 
 
 </body>
-</html>
 
+</html>
 {%endblock%}

@@ -1,0 +1,121 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block main_block%}
+<!-- <div class="contact_section layout_padding">
+    <div class="container">
+       <div class="row">
+          <div class="col-sm-12">
+             <h1 class="contact_taital">Get In Touch</h1> 
+          </div>
+       </div>
+    </div> -->
+<div class="container">
+    <div class="contact_section_2">
+       <div class="row">
+          <div class="col-md-12">
+             <div class="mail_section_1">
+                <form action="" method="post">
+                    {%csrf_token%}
+                <input type="email" class="mail_text" placeholder="Name" name="Name" value="{{request.user.email}}" id="firstName">
+                <input type="text" class="mail_text" placeholder="Phone Number" name="phone"id="lastName" required>
+                <!-- <textarea class="massage-bt" placeholder="Address" rows="5" id="email" name="address" required></textarea> -->
+                <!-- <select name="payment" id=""  class="mail_text" placeholder="payment"> -->
+                  <select class="mail_text" placeholder="Name" name="payment" value="online">
+                    <option value="online">online</option>
+                  </select>
+              
+                <button type="submit">submit</button>
+                submit  
+             </div>
+          </div>
+       </div>
+    </div>
+ </div> 
+{%endblock%}
+
+          <form action="" method="post">
+            {%csrf_token%}
+            <div class="mt-6 gap-6 space-y-4 md:grid md:grid-cols-2 md:space-y-0">
+                <div class="w-full">
+                  <label
+                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    for="firstName"
+                  >
+                    email
+                  </label>
+                  <input
+                    class="flex h-10 w-full rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    type="email"
+                    placeholder="Enter your first name"
+                    id="firstName"
+                    name="email"
+                    value="{{request.user.email}}"
+                  />
+                </div>
+                <div class="w-full">
+                  <label
+                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    for="lastName"
+                  >
+                    Phone
+                  </label>
+                  <input
+                    class="flex h-10 w-full rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    type="text"
+                    placeholder="Enter your phone"
+                    id="lastName"
+                    name="phone"
+                    required
+                  />
+                </div>
+                <div class="col-span-2 grid">
+                  <div class="w-full">
+                    <label
+                      class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      for="email"
+                      required
+                    >
+                   Address
+                    </label>
+                    <input
+                      class="flex h-10 w-full rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      type="text"
+                      placeholder="Enter delivery address"
+                      id="email"
+                      name="address"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-span-2 grid">
+                  <div class="w-full">
+                    <label
+                      class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      for="email"
+                      required
+                    >
+                   Payment Method
+                    </label>
+                    <select name="payment" id="" class="flex h-10 w-full rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    >
+
+                  
+                  <option value="online">online</option>
+                  </select>
+                    
+                  </div>
+                </div>
+                <div class="col-span-2 grid">
+                  <button
+                    type="submit"
+                    
+                    class="w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  >
+                  <a href="{%url 'order-summery'%}"></a>
+                    Next Step
+                  </button>
+                </div>
+              </div>
+
+          </form>

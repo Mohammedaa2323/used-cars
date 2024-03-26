@@ -1,0 +1,62 @@
+{%extends 'base.html'%}
+
+{%load static%}
+{%block main_block%}
+
+<div class="about_section layout_padding">
+    <div class="container">
+        <div class="about_section_2">
+            {%for c in data%}
+            
+            <div class="row  p-3 shadow mb-5">
+
+                <div class="col-md-6 ">
+                    <div class="image_iman"><img src="{{c.cars_object.image.url}}" class="about_img"></div>
+                </div>
+                <div class="col-md-6 ">
+                    <div class="about_taital_box ">
+                        <h1 class="about_taital mb-3">{{c.cars_object.name}}</h1>
+                        <!-- <span style="color: #fe5b29;">Car</span> -->
+                        <!-- <p class="about_taital " style="color: #fe5b29;">{{data.name}}</p> -->
+                        <div class="">
+                            <!-- <button type="button" class="btn btn-outline-secondary ">Type : -->
+                                <!-- {{data.fuel_object}}</button> -->
+                            <button type="button" class="btn btn-outline-secondary">Price :
+                                {{c.cars_object.price}}</button>
+                            <!-- <button type="button" class="btn btn-outline-secondary">Year : {{data.year}}</button> -->
+                            <!-- <button type="button" class="btn btn-outline-secondary">KM : -->
+                                <!-- {{data.distance_travelled}}</button> -->
+
+
+                        </div>
+
+                        <!-- <p class="about_text">{{c.cars_object.description}}</p> -->
+                        <div>
+                            <form action="" method="post">
+                                {%csrf_token%}
+                                <a type="" href="{%url 'favourites-remove' c.id%}" class="readmore_btns p-3 btn-outline-dark mt-5 me-3"
+                                    style="width: 200px;" >Remove <i class="fa-solid fa-trash" style="color: #ffffff;"></i>
+                            </a>
+                                <a type="" href="{%url 'checkout'%}" class="readmore_btns p-3 btn-outline-dark mt-5"
+                                    style="width: 200px;">Book Now
+                        </a>
+
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            {%endfor%}
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+</html>
+
+{%endblock%}
