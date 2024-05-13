@@ -13,9 +13,6 @@ from django.views.decorators.csrf import csrf_exempt
 from store.models import Cars,Brand,favouriteitems,Booking,BookingItems
 # Create your views here.
 
-
-
-
 class SignupView(View):
     
 
@@ -133,7 +130,7 @@ class CheckOutView(View):
     def post(self,request,*args,**kwargs):
         email=request.POST.get("email")
         phone=request.POST.get("phone")
-        address=request.POST.get("address")
+        # address=request.POST.get("address")
         payment_method=request.POST.get("payment")
 
     # creat order_instance
@@ -224,7 +221,7 @@ class PaymentVarificationView(View):
         except:
             print("!!!!!!!!!!!!!transaction falid!!!!!!!!!")
 
-        return redirect("order-summery")
+        return redirect("index")
 
 
 
