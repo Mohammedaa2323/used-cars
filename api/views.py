@@ -22,7 +22,6 @@ import razorpay
 
 
 
-
 class SignUpView(CreateAPIView):
 
     serializer_class=UserSerializer
@@ -197,3 +196,29 @@ class Summery(ListAPIView):
     def get_queryset(self):
         return Booking.objects.filter(user_object=self.request.user)
     
+class PaymentVarificationView(APIView):
+
+    def post(self,request,*args,**kwargs):
+
+        client=razorpay.Client(auth=(KEY_ID,KEY_SECRET))
+
+        data=request.data
+
+        print(request.POST,"hello")
+
+        try:
+            client.utility.verify_payment_signature(data)
+
+            order_obj=Booking.objects.get(order_id=data.get("razorpay_order_id"))
+
+            order_obj.is_paid=True
+
+            order_obj.save()
+
+            return request(data={"message":"payment success"},status=status.HTTP_200_OK)
+
+
+        except:
+
+            return request(data={"message":"payment error"},status=status.HTTP_402_PAYMENT_REQUIRED)
+

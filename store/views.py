@@ -13,6 +13,8 @@ from django.views.decorators.csrf import csrf_exempt
 from store.models import Cars,Brand,favouriteitems,Booking,BookingItems
 # Create your views here.
 
+
+
 class SignupView(View):
     
 
